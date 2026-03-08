@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chúc mừng 8/3/2026</title>
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg,#ff9ec4,#ffd6e7);
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.card{
+  background:white;
+  padding:50px 60px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.2);
+  animation:float 4s ease-in-out infinite;
+}
+
+h1{
+  font-size:42px;
+  color:#e91e63;
+  margin-bottom:10px;
+}
+
+h2{
+  font-weight:400;
+  color:#555;
+}
+
+p{
+  font-size:18px;
+  margin-top:20px;
+  color:#444;
+}
+
+.heart{
+  font-size:30px;
+  animation:beat 1s infinite;
+}
+
+@keyframes beat{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+  100%{transform:scale(1)}
+}
+
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0)}
+}
+
+.flower{
+  position:absolute;
+  font-size:24px;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  from{transform:translateY(-100px)}
+  to{transform:translateY(110vh)}
+}
+
+button{
+  margin-top:25px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#e91e63;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.1);
+}
+
+.message{
+  margin-top:20px;
+  display:none;
+  font-size:20px;
+  color:#e91e63;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>🌸 Happy Women's Day 🌸</h1>
+  <h2>Ngày 8 / 3 / 2026</h2>
+  <p>Chúc tất cả những người phụ nữ luôn xinh đẹp, mạnh mẽ và hạnh phúc!</p>
+
+  <div class="heart">❤️</div>
+
+  <button onclick="showMessage()">Nhấn vào đây</button>
+
+  <div class="message" id="msg">Chúc bạn một ngày 8/3 thật tuyệt vời:3 🌷</div>
+</div>
+
+<script>
+function showMessage(){
+  document.getElementById('msg').style.display='block'
+}
+
+function createFlower(){
+  const flower=document.createElement('div')
+  flower.classList.add('flower')
+  flower.innerHTML='🌸'
+
+  flower.style.left=Math.random()*100+'vw'
+  flower.style.animationDuration=(3+Math.random()*5)+'s'
+
+  document.body.appendChild(flower)
+
+  setTimeout(()=>{
+    flower.remove()
+  },8000)
+}
+
+setInterval(createFlower,300)
+</script>
+
+</body>
+</html>
